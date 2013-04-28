@@ -18,6 +18,12 @@
 		141C3F99172D3D0D00B31DC6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 141C3F98172D3D0D00B31DC6 /* Default-568h@2x.png */; };
 		141C3F9C172D3D0D00B31DC6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141C3F9B172D3D0D00B31DC6 /* ViewController.m */; };
 		141C3F9F172D3D0D00B31DC6 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 141C3F9D172D3D0D00B31DC6 /* ViewController.xib */; };
+		141C3FA8172D3EF600B31DC6 /* mainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141C3FA6172D3EF600B31DC6 /* mainViewController.m */; };
+		141C3FA9172D3EF600B31DC6 /* mainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 141C3FA7172D3EF600B31DC6 /* mainViewController.xib */; };
+		141C3FAB172D4AC600B31DC6 /* apple-touch-icon-114x114-precomposed.png in Resources */ = {isa = PBXBuildFile; fileRef = 141C3FAA172D4AC600B31DC6 /* apple-touch-icon-114x114-precomposed.png */; };
+		141C3FAD172D4ACC00B31DC6 /* webcontent-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 141C3FAC172D4ACC00B31DC6 /* webcontent-57.png */; };
+		141C3FAF172D4ADC00B31DC6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 141C3FAE172D4ADC00B31DC6 /* Default-568h@2x.png */; };
+		141C3FB1172D4AEC00B31DC6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 141C3FB0172D4AEC00B31DC6 /* Default@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +43,13 @@
 		141C3F9A172D3D0D00B31DC6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		141C3F9B172D3D0D00B31DC6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		141C3F9E172D3D0D00B31DC6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		141C3FA5172D3EF600B31DC6 /* mainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainViewController.h; sourceTree = "<group>"; };
+		141C3FA6172D3EF600B31DC6 /* mainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainViewController.m; sourceTree = "<group>"; };
+		141C3FA7172D3EF600B31DC6 /* mainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = mainViewController.xib; sourceTree = "<group>"; };
+		141C3FAA172D4AC600B31DC6 /* apple-touch-icon-114x114-precomposed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apple-touch-icon-114x114-precomposed.png"; sourceTree = "<group>"; };
+		141C3FAC172D4ACC00B31DC6 /* webcontent-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "webcontent-57.png"; sourceTree = "<group>"; };
+		141C3FAE172D4ADC00B31DC6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		141C3FB0172D4AEC00B31DC6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +69,10 @@
 		141C3F76172D3D0D00B31DC6 = {
 			isa = PBXGroup;
 			children = (
+				141C3FB0172D4AEC00B31DC6 /* Default@2x.png */,
+				141C3FAE172D4ADC00B31DC6 /* Default-568h@2x.png */,
+				141C3FAC172D4ACC00B31DC6 /* webcontent-57.png */,
+				141C3FAA172D4AC600B31DC6 /* apple-touch-icon-114x114-precomposed.png */,
 				141C3F88172D3D0D00B31DC6 /* crosschat3 */,
 				141C3F81172D3D0D00B31DC6 /* Frameworks */,
 				141C3F80172D3D0D00B31DC6 /* Products */,
@@ -88,6 +105,9 @@
 				141C3F9A172D3D0D00B31DC6 /* ViewController.h */,
 				141C3F9B172D3D0D00B31DC6 /* ViewController.m */,
 				141C3F9D172D3D0D00B31DC6 /* ViewController.xib */,
+				141C3FA5172D3EF600B31DC6 /* mainViewController.h */,
+				141C3FA6172D3EF600B31DC6 /* mainViewController.m */,
+				141C3FA7172D3EF600B31DC6 /* mainViewController.xib */,
 				141C3F89172D3D0D00B31DC6 /* Supporting Files */,
 			);
 			path = crosschat3;
@@ -163,6 +183,11 @@
 				141C3F97172D3D0D00B31DC6 /* Default@2x.png in Resources */,
 				141C3F99172D3D0D00B31DC6 /* Default-568h@2x.png in Resources */,
 				141C3F9F172D3D0D00B31DC6 /* ViewController.xib in Resources */,
+				141C3FA9172D3EF600B31DC6 /* mainViewController.xib in Resources */,
+				141C3FAB172D4AC600B31DC6 /* apple-touch-icon-114x114-precomposed.png in Resources */,
+				141C3FAD172D4ACC00B31DC6 /* webcontent-57.png in Resources */,
+				141C3FAF172D4ADC00B31DC6 /* Default-568h@2x.png in Resources */,
+				141C3FB1172D4AEC00B31DC6 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +201,7 @@
 				141C3F8F172D3D0D00B31DC6 /* main.m in Sources */,
 				141C3F93172D3D0D00B31DC6 /* AppDelegate.m in Sources */,
 				141C3F9C172D3D0D00B31DC6 /* ViewController.m in Sources */,
+				141C3FA8172D3EF600B31DC6 /* mainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
