@@ -14,13 +14,13 @@
 @interface mainViewController : UIViewController<SocketIODelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *welcomeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *fromUserLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *fromUserLabel;
 @property (weak, nonatomic) IBOutlet UITextView *incomingMsgTextView;
 @property (weak, nonatomic) IBOutlet UITextField *sendingMsgTextFeild;
 
 - (IBAction)logoutAction:(id)sender;
 - (IBAction)textFieldDoneEditing:(id)sender;
 - (IBAction)sendMessageAction:(id)sender;
-- (void)updateIncomingMsgSection:(NSDictionary *)args;
+- (void)updateIncomingMsgSection:(NSString *)str;
 
 @end

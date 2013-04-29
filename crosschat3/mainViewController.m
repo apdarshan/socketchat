@@ -12,7 +12,6 @@
 @interface mainViewController ()
 {
     SocketIO* socketIO;
-//    SRWebSocket* webSocketIO;
 }
 @end
 
@@ -47,59 +46,69 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-
--(void)socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet{
-    
-    
-    NSLog(@"Event triggered packet: data:%@ type:%@", packet.data, packet.type);
-    NSDictionary* response = [NSDictionary dictionaryWithDictionary:packet.dataAsJSON];
-
-   if ([[response objectForKey:@"name"] isEqualToString:@"messagein"]) {
-       
-//        if ([[response objectForKey:@"name"] isEqualToString:@"task"]&&[response objectForKey:@"args"]&&[[response objectForKey:@"args"] count]>0) {
-//            self.incomingMsgTextView.text = [self.incomingMsgTextView.text stringByAppendingFormat:@"\n%@",[[response objectForKey:@"args"] objectAtIndex:0]];
-//        }
-       
-       self.incomingMsgTextView.text = [[[response objectForKey:@"args"] objectAtIndex:0] objectForKey:@"msg"];
-       self.fromUserLabel.text = [[[response objectForKey:@"args"] objectAtIndex:0] objectForKey:@"username"];
-       self.fromUserLabel.text = [self.fromUserLabel.text stringByAppendingFormat:@"%@", @": "];
-   }
-
-}
-
-
-- (void)updateIncomingMsgSection:(NSDictionary *)args {
-    self.fromUserLabel.text = [args objectForKey:@"username"];
-    self.incomingMsgTextView.text  = [args objectForKey:@"msg"];
-}
-
-
 - (void) socketIO:(SocketIO *)socket failedToConnectWithError:(NSError *)error
 {
     NSLog(@"failedToConnectWithError() %@", error);
 }
 
-
-- (IBAction)logoutAction:(id)sender {
+- (IBAction)logoutAction:(id)sender
+{
     [ViewController setUsername:nil];
     ViewController* vc = [[ViewController alloc]init];
-    //[self parentViewController];
     [self presentViewController:vc animated:YES completion:nil];
 }
 
-- (IBAction)textFieldDoneEditing:(id)sender {
+- (IBAction)textFieldDoneEditing:(id)sender
+{
     [sender resignFirstResponder];
 }
 
-- (IBAction)sendMessageAction:(id)sender {
+- (IBAction)sendMessageAction:(id)sender
+{
     
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setObject:self.sendingMsgTextFeild.text forKey:@"message"];
     [dict setObject:[ViewController username] forKey:@"username"];
     
     [socketIO sendEvent:@"messagesend" withData:dict];
-    self.sendingMsgTextFeild.text = @"";
+   
+    
+    NSString *fromWithMsg = [@"me: " stringByAppendingString:self.sendingMsgTextFeild.text];
+    [self updateIncomingMsgSection:fromWithMsg];
+    
+    self.sendingMsgTextFeild.text = @"";    // Clear msgtextfield
+}
+
+-(void)socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet
+{
+    NSLog(@"Event triggered packet: data:%@ type:%@", packet.data, packet.type);
+    NSDictionary* response = [NSDictionary dictionaryWithDictionary:packet.dataAsJSON];
+    
+    if ([[response objectForKey:@"name"] isEqualToString:@"messagein"]) {
+        
+        NSString *fromUsername = [[[response objectForKey:@"args"] objectAtIndex:0] objectForKey:@"username"];
+        NSString *fromColon = [fromUsername stringByAppendingString:@":  "];
+        NSString *fromWithMsg = [fromColon stringByAppendingString:[[[response objectForKey:@"args"] objectAtIndex:0] objectForKey:@"msg"]];
+        
+        [self updateIncomingMsgSection:fromWithMsg];
+    }
+    
+}
+
+- (void)updateIncomingMsgSection:(NSString *)str
+{    
+    NSString* apendTxt = [NSString alloc];
+    if (self.incomingMsgTextView.text.length == 0) {
+        apendTxt = @"%@";
+    }
+    else{
+        apendTxt = @"\n%@";
+    }
+    
+    self.incomingMsgTextView.text = [self.incomingMsgTextView.text stringByAppendingFormat:apendTxt, str];
+    
+    NSRange range = NSMakeRange(self.incomingMsgTextView.text.length - 1, 1);
+    [self.incomingMsgTextView scrollRangeToVisible:range];
     
 }
 
