@@ -30,23 +30,28 @@ static NSString *username;
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)joinBtnAction:(id)sender {
+// to join chat room
+- (IBAction)joinBtnAction:(id)sender
+{
     NSString* nameString = self.yourNameTextField.text;
     
+    
     if([nameString length]==0){
+        // displays alert on empty name
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Your Name" message:@"Please enter your name" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
         [alert show];
     }
     else{
         
-        NSString* fullText = [[NSString alloc] initWithFormat:@"Good job , %@ !", nameString];
+        // alert on valid username
         
+        NSString* fullText = [[NSString alloc] initWithFormat:@"Good job , %@ !", nameString];
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:fullText message:@"Now you joined The Room! Start Chating !" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
         
-        //        static NSString *myInstance = nil;
-        //        myInstance  = [[[self class] alloc] init];
-        
+        // set username property to use to in next controller
         username = nameString;
+        
+        // redirect to new controller
         mainViewController * mc = [[mainViewController alloc]init];
         [self presentViewController:mc
                            animated:YES completion:nil];
@@ -57,10 +62,12 @@ static NSString *username;
 + (NSString *)username { return username; }
 + (void)setUsername:(NSString *)usernamevalue { username = usernamevalue; }
 
+// to hide keypad when typing is done
 - (IBAction)textFieldDoneEditing:(id)sender {
     [sender resignFirstResponder];
 }
 
+//to hide keypad on background tap
 - (IBAction)backgroundTap:(id)sender {
     [self.yourNameTextField resignFirstResponder];
 }

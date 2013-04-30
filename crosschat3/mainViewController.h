@@ -7,14 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SocketIO.h"
-//#import "SRWebSocket.h"
-#import "SocketIOPacket.h"
+#import "SocketIO.h"    // library to communicate through websocket
+#import "SocketIOPacket.h"  // library to communicate through websocket
 
 @interface mainViewController : UIViewController<SocketIODelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *welcomeLabel;
-//@property (weak, nonatomic) IBOutlet UILabel *fromUserLabel;
 @property (weak, nonatomic) IBOutlet UITextView *incomingMsgTextView;
 @property (weak, nonatomic) IBOutlet UITextField *sendingMsgTextFeild;
 
